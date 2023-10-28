@@ -10,11 +10,15 @@ import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 
+const myStore = createStore(reducer);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <Provider store={myStore}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
